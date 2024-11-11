@@ -1,0 +1,44 @@
+img {
+    height: 400px;
+    border-radius: 10%;
+}
+
+ion-card {
+    margin: 10px;
+    border-radius: 2%;
+}
+
+h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    font-size: 15px;
+}
+
+ion-toolbar {
+    ion-title {
+        justify-content: center;
+    }
+}
+
+ion-icon {
+    color: white;
+}
+
+ion-title {
+    flex: 1;
+}
+
+#bto-grande {
+    font-size: 24px;
+    height: 100px;
+    width: 100px;
+
+    ion-icon {
+        font-size: 40px;
+    }
+}

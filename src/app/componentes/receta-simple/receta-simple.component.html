@@ -3,7 +3,8 @@
   <ion-card>
     <img alt="Receta de {{receta.strMeal}}" src={{receta.strMealThumb}} />
     <ion-card-header>
-      <ion-card-title>{{receta.strMeal}}</ion-card-title>
+      <!-- <ion-card-title><a [routerLink]="['/receta-completa', receta.idMeal]"> {{receta.strMeal}}</a> </ion-card-title> -->
+      <ion-card-title>  <a [routerLink]="['/listado-recetas', 'receta-completa', receta.idMeal]"> {{ receta.strMeal }}</a>  </ion-card-title>
       <ion-card-subtitle>{{receta.strCategory}} - {{receta.strArea}}</ion-card-subtitle>
     </ion-card-header>
 
@@ -12,7 +13,7 @@
         <p>Receta sin instrucciones</p>
       }
       @else {
-        <p>{{receta.strInstructions.substring(0, 80)}}...</p>
+        <p>{{receta.strInstructions.substring(0, 82)}}...</p>
       }
     </ion-card-content>
 

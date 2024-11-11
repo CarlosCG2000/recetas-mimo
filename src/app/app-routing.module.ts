@@ -5,11 +5,15 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'detalles-receta-completa',
+    loadChildren: () => import('./pages/detalles-receta-completa/detalles-receta-completa.module').then( m => m.DetallesRecetaCompletaPageModule)
   }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, useHash: false })
   ],
   exports: [RouterModule]
 })

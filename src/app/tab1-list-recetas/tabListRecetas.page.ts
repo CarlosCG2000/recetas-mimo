@@ -16,7 +16,6 @@ export class TabListRecetasPage {
     this.recetasServicio.getRecetasCategoria('Seafood')
     .subscribe((recetas:any) => {
       this.recetas = recetas.meals
-      console.log(this.recetas)
     })
   }
 

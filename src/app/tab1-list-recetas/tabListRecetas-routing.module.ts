@@ -6,9 +6,17 @@ const routes: Routes = [
   {
     path: '',
     component: TabListRecetasPage,
+  },
+  {
+    path: 'receta-completa/:id',
+    loadChildren: () => import('../pages/detalles-receta-completa/detalles-receta-completa.module').then(m => m.DetallesRecetaCompletaPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'listado-recetas',
+    pathMatch: 'full'
   }
-];
-
+]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

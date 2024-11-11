@@ -1,0 +1,62 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar size="large">
+    <ion-title>Detalles de la receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="irAtras()" class="bto-grande">
+          <ion-icon name="arrow-back-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title size="large" class="ion-text-center">Detalles de la receta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card collapse="condense" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>{{ receta?.strMeal }}</ion-card-title>
+      <ion-card-subtitle>{{ receta?.strCategory }} - {{ receta?.strArea }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="receta?.strMealThumb" alt="Imagen de la receta" />
+
+      <ion-item class="ion-text-center">
+        <ion-label>
+          <h2>Instrucciones</h2>
+          <p>{{ receta?.strInstructions }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item class="ion-text-center">
+        <ion-label class="ion-align-items-center">
+          <h2>Ingredientes y Medidas</h2>
+          <div *ngFor="let ingrediente of ingredientes">
+            <p>{{ ingrediente?.medida }} - {{ ingrediente?.nombre }}</p>
+          </div>
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="receta?.strYoutube" class="ion-text-center">
+        <ion-label>
+          <h2>Video de la Receta</h2>
+          <a [href]="receta?.strYoutube" target="_blank">Ver en YouTube</a>
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="receta?.strSource" class="ion-text-center">
+        <ion-label>
+          <h2>Fuente</h2>
+          <a [href]="receta?.strSource" target="_blank">Ir a la fuente</a>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

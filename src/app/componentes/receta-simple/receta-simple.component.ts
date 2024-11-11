@@ -23,7 +23,7 @@ export class RecetaSimpleComponent implements OnInit {
     this.recetaService.getRecetaById(this.receta.idMeal)
     .subscribe((receta:any) => {
       this.receta = receta.meals[0]
-      console.log(this.receta)
+      //console.log(this.receta)
     })
 
     // Comprobamos que la receta se encuentra en el LocalStorage de recetas favoritas para devolver el icono de de estrella con o sin relleno

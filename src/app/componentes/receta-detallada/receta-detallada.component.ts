@@ -5,10 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './receta-detallada.component.html',
   styleUrls: ['./receta-detallada.component.scss'],
 })
-export class RecetaDetalladaComponent  implements OnInit {
+export class RecetaDetalladaComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("Hola mundo")
+  }
 
 }
