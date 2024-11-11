@@ -2,10 +2,10 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { TabListRecetasPage } from './tabListRecetas.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { TabListRecetasRoutingModule } from './tabListRecetas-routing.module';
 
 @NgModule({
   imports: [
@@ -13,8 +13,8 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    TabListRecetasRoutingModule // las rutas de la página
   ],
-  declarations: [Tab1Page]
+  declarations: [TabListRecetasPage] //  para las importaciones TabListRecetasPage, en fichero separado
 })
-export class Tab1PageModule {}
+export class TabListRecetasModule {}
