@@ -1,0 +1,29 @@
+
+<!-- <ion-col size="4"> -->
+  <ion-card>
+    <img alt="Receta de {{receta.strMeal}}" src={{receta.strMealThumb}} />
+    <ion-card-header>
+      <ion-card-title>{{receta.strMeal}}</ion-card-title>
+      <ion-card-subtitle>{{receta.strCategory}} - {{receta.strArea}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if(receta.strInstructions === undefined) {
+        <p>Receta sin instrucciones</p>
+      }
+      @else {
+        <p>{{receta.strInstructions.substring(0, 80)}}...</p>
+      }
+    </ion-card-content>
+
+    <div class="btFavSolo">
+      <ion-button fill="clear">
+        <!-- @if(estado){
+          <ion-icon name="star" class="iconFav"></ion-icon>
+        } @else { -->
+          <ion-icon name="star-outline" class="iconFav"></ion-icon>
+        <!-- } -->
+      </ion-button>
+    </div>
+  </ion-card>
+<!-- </ion-col> -->

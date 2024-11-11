@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RecetasService } from '../servicios/recetas.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class TabListRecetasPage {
 
-  constructor() {}
+  estado = true
+  recetasServicio = inject(RecetasService)
+  recetas:any[] = []
+
+  constructor() {
+    this.recetasServicio.getRecetasCategoria('Seafood')
+    .subscribe((recetas:any) => {
+      this.recetas = recetas.meals
+      console.log(this.recetas)
+    })
+  }
 
 }
