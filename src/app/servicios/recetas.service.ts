@@ -14,6 +14,9 @@ export class RecetasService {
   urlRecetasNombre = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
   urlRecetaId = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='
 
+  urlCategorias = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list'
+  urlAreas = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list'
+
   private httpClient = inject(HttpClient)
 
   constructor() { }
@@ -32,6 +35,14 @@ export class RecetasService {
 
   getRecetaById(id: string){
     return this.httpClient.get(this.urlRecetaId+id);
+  }
+
+  getCategorias(){
+    return this.httpClient.get(this.urlCategorias);
+  }
+
+  getAreas(){
+    return this.httpClient.get(this.urlAreas);
   }
 
 }
