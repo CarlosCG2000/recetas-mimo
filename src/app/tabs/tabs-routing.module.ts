@@ -12,8 +12,8 @@ const routes: Routes = [
         loadChildren: () => import('../tab1-list-recetas/tabListRecetas.module').then(m => m.TabListRecetasModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'recetas-favoritas',
+        loadChildren: () => import('../tab2-recetas-favoritas/tab2-recetas-favoritas.module').then(m => m.Tab2RecetasFavoritasPageModule)
       },
       {
         path: 'tab3',
