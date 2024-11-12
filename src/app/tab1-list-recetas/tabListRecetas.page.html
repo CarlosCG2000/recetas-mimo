@@ -17,7 +17,7 @@
   <!-- ======================= FILTRO =============================== -->
   <ion-grid [fixed]="true">
     <ion-row>
-      <ion-col size="4">
+      <ion-col size="6">
         <ion-item>
           <ion-input  (ionInput)="ionChangeNombre($event)"
                       [(ngModel)]="nombre"
@@ -26,12 +26,12 @@
         </ion-item>
       </ion-col>
 
-      <ion-col size="4">
+      <ion-col size="6">
         <ion-item>
           <ion-select (ionChange)="ionChangeCategoria($event)"
                       [(ngModel)]="categoriaSeleccionada"
                       label="Categoria"
-                      value="Seafood">
+                      placeholder="Tipo de categoría disponible">
             <ion-select-option value="nothing"> - </ion-select-option>
             @for(categoriaItem of categorias; track categoriaItem.strCategory)
             {
@@ -41,7 +41,7 @@
         </ion-item>
       </ion-col>
 
-      <ion-col size="4">
+      <!-- <ion-col size="4">
         <ion-item>
           <ion-select (ionChange)="ionChangeArea($event)"
                       [(ngModel)]="areaSeleccionada"
@@ -55,7 +55,7 @@
             }
           </ion-select>
         </ion-item>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </ion-grid>
   <!-- ====================================================== -->
@@ -63,7 +63,7 @@
   <ion-grid [fixed]="true">
     <ion-row>
 
-      @for(recetaItem of recetas; track recetaItem.idMeal)
+      @for(recetaItem of recetas.slice(0, 30); track recetaItem.idMeal)
       {
         <ion-col size="4">
           <app-receta-simple [receta]=recetaItem />

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-// import recetas from '../mocks/recetas-area.json';
+import recetas from '../mocks/recetas.json';
 
 @Injectable({
   providedIn: 'root'
@@ -8,29 +8,36 @@ import { inject, Injectable } from '@angular/core';
 export class RecetasService {
 
   // recetasJson = recetas.meals;
-  recetasJson = []
-  urlRecetasCategoria = 'https://www.themealdb.com/api/json/v1/1/filter.php?c='
-  urlRecetasArea = 'https://www.themealdb.com/api/json/v1/1/filter.php?a='
-  urlRecetasNombre = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
-  urlRecetaId = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='
+  recetasJson = recetas.meals;
 
+  // ========== EL PROBLEMA QUE SOLO SAQUE 25 ITEMS NO ME SACA TODOS LOS ITEMS ==========
+  // urlRecetasCategoria = 'https://www.themealdb.com/api/json/v1/1/filter.php?c='
+  // urlRecetasArea = 'https://www.themealdb.com/api/json/v1/1/filter.php?a='
+  // urlRecetasNombre = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
+  // =================================================================================
+
+  urlRecetaId = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='
   urlCategorias = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list'
-  urlAreas = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list'
+  // urlAreas = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list'
 
   private httpClient = inject(HttpClient)
 
   constructor() { }
 
-  getRecetasCategoria(categoria: string){
-    return this.httpClient.get(this.urlRecetasCategoria+categoria);
-  }
+  // getRecetasCategoria(categoria: string){
+  //   return this.httpClient.get(this.urlRecetasCategoria+categoria);
+  // }
 
-  getRecetasArea(area: string){
-    return this.httpClient.get(this.urlRecetasArea+area);
-  }
+  // getRecetasArea(area: string){
+  //   return this.httpClient.get(this.urlRecetasArea+area);
+  // }
 
-  getRecetasNombre(nombre: string){
-    return this.httpClient.get(this.urlRecetasNombre+nombre);
+  // getRecetasNombre(nombre: string){
+  //   return this.httpClient.get(this.urlRecetasNombre+nombre);
+  // }
+
+  getRecetas(){
+    return this.recetasJson;
   }
 
   getRecetaById(id: string){
@@ -41,8 +48,8 @@ export class RecetasService {
     return this.httpClient.get(this.urlCategorias);
   }
 
-  getAreas(){
-    return this.httpClient.get(this.urlAreas);
-  }
+  // getAreas(){
+  //   return this.httpClient.get(this.urlAreas);
+  // }
 
 }
