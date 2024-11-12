@@ -21,8 +21,8 @@
         <ion-item>
           <ion-input  (ionInput)="ionChangeNombre($event)"
                       [(ngModel)]="nombre"
-                      label="Nombre"
-                      placeholder="Pizza, tortilla, ensalada..."></ion-input>
+                      label="Comida"
+                      placeholder="hamburger, salad, omelette..."></ion-input>
         </ion-item>
       </ion-col>
 
@@ -30,9 +30,9 @@
         <ion-item>
           <ion-select (ionChange)="ionChangeCategoria($event)"
                       [(ngModel)]="categoriaSeleccionada"
-                      label="Categoria"
+                      label="Categoría"
                       placeholder="Tipo de categoría disponible">
-            <ion-select-option value="nothing"> - </ion-select-option>
+            <ion-select-option value="nothing"> ------ </ion-select-option>
             @for(categoriaItem of categorias; track categoriaItem.strCategory)
             {
               <ion-select-option value={{categoriaItem.strCategory}}>{{categoriaItem.strCategory}}</ion-select-option>
