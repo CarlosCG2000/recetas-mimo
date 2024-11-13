@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, Signal } from '@angular/core';
+import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab2RecetasFavoritasPage {
 
-  constructor() {}
+  recetasFavServicio = inject(FavoritasRecetasService)
+  // recetasFav = signal<any[]>([])
+
+  constructor() {
+    // this.recetasFav.set(this.recetasFavServicio.getRecetasFav())
+  }
 
 }

@@ -6,6 +6,7 @@ import { Tab2RecetasFavoritasPage } from './tab2-recetas-favoritas.page';
 import { ExploreContainerComponentModule } from '../componentes/explore-container/explore-container.module';
 
 import { Tab2RecetasFavoritasPageRoutingModule } from './tab-recetas-favoritas-routing.module';
+import { RecetaSimpleComponentModule } from "../componentes/receta-simple/receta-simple.module";
 
 @NgModule({
   imports: [
@@ -13,8 +14,9 @@ import { Tab2RecetasFavoritasPageRoutingModule } from './tab-recetas-favoritas-r
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2RecetasFavoritasPageRoutingModule
-  ],
+    Tab2RecetasFavoritasPageRoutingModule,
+    RecetaSimpleComponentModule
+],
   declarations: [Tab2RecetasFavoritasPage]
 })
 export class Tab2RecetasFavoritasPageModule {}

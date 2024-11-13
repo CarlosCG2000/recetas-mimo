@@ -1,17 +1,33 @@
+
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar size="large">
+    <ion-title>Recetas Favoritas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Recetas Favoritas</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="ion-padding">
+
+  <ion-grid [fixed]="true">
+    <ion-row>
+
+      @for(recetaItem of recetasFavServicio.getRecetasFav(); track recetaItem.idMeal)
+      {
+        <ion-col size="4">
+          <app-receta-simple [receta]=recetaItem [sinModi]=true  [estadoFav]="recetasFavServicio.estadoFavReceta(recetaItem.idMeal)" />
+        </ion-col>
+      }
+
+    </ion-row>
+  </ion-grid>
+
+</div>
+
 </ion-content>

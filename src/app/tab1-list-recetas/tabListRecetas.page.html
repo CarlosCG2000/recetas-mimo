@@ -63,10 +63,10 @@
   <ion-grid [fixed]="true">
     <ion-row>
 
-      @for(recetaItem of recetas.slice(0, 30); track recetaItem.idMeal)
+      @for(recetaItem of recetas().slice(0, 30); track recetaItem.idMeal)
       {
         <ion-col size="4">
-          <app-receta-simple [receta]=recetaItem />
+          <app-receta-simple [receta]=recetaItem [sinModi]=false [estadoFav]="recetasFavoritas.estadoFavReceta(recetaItem.idMeal)" /> <!-- (cambioFav)="cambiarFavReceta()" -->
         </ion-col>
       }
 

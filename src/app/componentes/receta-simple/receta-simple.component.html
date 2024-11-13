@@ -17,14 +17,72 @@
       }
     </ion-card-content>
 
+    @if(sinModi){ <!-- PARA PAGINA DE LISTADO DE FAVORITOS DE RECETAS -->
+      <div class="inputTips">
+        @if(sinTip){  <!-- SI LA RECETA TIENE TIPS -->
+            <ion-list>
+              <!-- Listado de tips -->
+              @for(tip of tips; track tip)
+              {
+                <ion-item>
+                  <ion-label>{{tip}}</ion-label>
+                  <ion-button (click)="deleteTip(tip)">Eliminar</ion-button>
+                </ion-item>
+              }
+            </ion-list>
+            <ion-input (ionInput)="inputTips($event)"
+            [(ngModel)]="tipInput"
+            placeholder="Escribe un tip"></ion-input>
+            <ion-button (click)="addTip()">Guardar</ion-button>
+        } @else { <!-- SI LA RECETA AUN NO TIENE TIPS -->
+            <ion-list>
+              <ion-item> <ion-label>No hay tips para esta receta</ion-label></ion-item>
+            </ion-list>
+            <ion-input (ionInput)="inputTips($event)"
+            [(ngModel)]="tipInput"
+            placeholder="Escribe un tip"></ion-input>
+            <ion-button (click)="addTip()">Guardar</ion-button>
+        }
+      </div>
+    }
+
     <div class="btFavSolo">
-      <ion-button fill="clear">
-        <!-- @if(estado){
+      <ion-button (click)="favRecetaModificar()" fill="clear">
+        @if(estadoFav){
           <ion-icon name="star" class="iconFav"></ion-icon>
-        } @else { -->
+        } @else {
           <ion-icon name="star-outline" class="iconFav"></ion-icon>
-        <!-- } -->
+        }
       </ion-button>
     </div>
+
+    <!-- LISTADO DE TIPS - SI ES UNA RECETA EN FAVORITOS -->
+    <!-- @if(estadoFav){
+      @if(sinTip){
+        <div class="inputTips">
+          <ion-list>
+            @for(tip of tips; track tip)
+            {
+              <ion-item>
+                <ion-label>{{tip}}</ion-label>
+                <ion-button>Eliminar</ion-button>
+              </ion-item>
+            }
+            </ion-list>
+          <ion-input placeholder="Escribe un tip"></ion-input>
+          <ion-button>Guardar</ion-button>
+        </div>
+      } @else {
+        <div class="inputTips">
+          <ion-list>
+            <ion-item> <ion-label>No hay tips para esta receta</ion-label></ion-item>
+          </ion-list>
+          <ion-input placeholder="Escribe un tip"></ion-input>
+          <ion-button>Guardar</ion-button>
+        </div>
+      }
+    } -->
+    <!-- ======================================== -->
+
   </ion-card>
 <!-- </ion-col> -->
