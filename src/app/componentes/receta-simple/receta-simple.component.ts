@@ -59,7 +59,8 @@ export class RecetaSimpleComponent implements OnInit {
     if (this.tipInput.trim() !== '') {
       this.favService.addTipsRecetasFav(this.receta.idMeal, this.tipInput);
       this.tips = this.favService.getRecetaById(this.receta).tips
-      this.tipInput = ' ';
+      this.tipInput = '';
+      console.log(`input ${ this.tipInput}`)
     }
   }
 
