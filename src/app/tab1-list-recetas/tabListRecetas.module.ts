@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TabListRecetasPage } from './tabListRecetas.page';
-import { ExploreContainerComponentModule } from '../componentes/explore-container/explore-container.module';
 
 import { TabListRecetasRoutingModule } from './tabListRecetas-routing.module';
 import { RecetaSimpleComponentModule } from "../componentes/receta-simple/receta-simple.module";
@@ -13,7 +12,6 @@ import { RecetaSimpleComponentModule } from "../componentes/receta-simple/receta
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
     TabListRecetasRoutingModule, // las rutas de la página
     RecetaSimpleComponentModule,
     ReactiveFormsModule
