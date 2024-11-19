@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
+import { Prop } from 'ionicons/dist/types/stencil-public-runtime';
+import { PropiasRecetasService } from '../servicios/propias-recetas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +11,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3RecetasPropiasPage {
 
-  constructor() {}
+  recetasFavServicio = inject(FavoritasRecetasService)
+  misRecetasServicio = inject(PropiasRecetasService)
+
+  constructor(private router: Router) {}
+
+  navegarFormulario() {
+    this.router.navigate(["/formulario-receta"])
+  }
 
 }

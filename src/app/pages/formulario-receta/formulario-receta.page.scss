@@ -1,0 +1,43 @@
+.div-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.btFavSolo {
+    display: flex;
+    justify-content: end;
+    padding: 0 20px;
+}
+
+ion-button {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+ion-toolbar {
+    ion-title {
+        justify-content: center;
+    }
+}
+
+ion-label {
+
+    p {
+        width: 300px;
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        // background-color: rgb(205, 211, 255);
+
+        span {
+            color: rgb(155, 28, 28);
+        }
+    }
+}
+
+ion-input,
+ion-textarea {
+    margin-left: 100px;
+}

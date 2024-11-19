@@ -1,1 +1,37 @@
 
+
+<ion-header [translucent]="true">
+    <ion-toolbar size="large">
+        <ion-title>Mis Recetas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-header collapse="condense">
+        <ion-toolbar>
+        <ion-title size="large">Mis Recetas</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="ion-padding">
+
+    <ion-grid [fixed]="true">
+        <ion-row class="ion-justify-content-center ion-align-items-center">
+            <ion-col size="auto">
+                <ion-button (click)="navegarFormulario()" expand="block" fill="outline" color="primary">Nueva receta</ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+        @for(recetaItem of misRecetasServicio.getRecetasPropias(); track recetaItem.idMeal)
+        {
+            <ion-col size="4">
+            <app-receta-simple [receta]=recetaItem [sinModi]=false  [estadoFav]="recetasFavServicio.estadoFavReceta(recetaItem.idMeal)"/> <!-- añadir uno para modificiar si es receta propia -->
+            </ion-col>
+        }
+        </ion-row>
+    </ion-grid>
+
+    </div>
+
+</ion-content>

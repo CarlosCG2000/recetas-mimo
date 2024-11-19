@@ -1,0 +1,94 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    @if(this.id === '') {
+      <ion-title>Creación Receta</ion-title>
+    } @else {
+      <ion-title>Modificación Receta</ion-title>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+
+      <ion-buttons slot="start">
+        <ion-button (click)="irAtras()" class="bto-grande">
+          <ion-icon name="arrow-back-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      @if(this.id === ''){
+        <ion-title size="large">Creación Receta</ion-title>
+      } @else {
+        <ion-title size="large">Modificación Receta</ion-title>
+      }
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+
+    <!-- =================== FORMULARIO =================== -->
+    <form [formGroup]="mealForm" (ngSubmit)="onSubmit()">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Información de la nueva receta</ion-card-title>
+          <ion-card-subtitle>Completa los detalles de la receta</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item lines="none">
+            <ion-label position="fixed"> <p>Nombre de la Receta <span>*</span></p> </ion-label>
+            <ion-input formControlName="strMeal" type="text" placeholder="Tortilla de patatas, arepas, ramen..."></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed"> <p>Categoría <span>*</span></p> </ion-label>
+            <ion-input formControlName="strCategory" type="text" placeholder="Carne, pescado, pastas, legumbres, postres..."></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed"> <p>Zona <span>*</span></p> </ion-label>
+            <ion-input formControlName="strArea" type="text" placeholder="España, China, Colombia, Marruecos..."></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed"> <p>Instrucciones <span>*</span></p> </ion-label>
+            <ion-textarea formControlName="strInstructions" placeholder="Primero pelamos las patatas. Recomiendo utilizar un pelador ya que iremos mucho más rápido. Las lavamos y las secamos bien. Mas tarde sería hora de cortarlas. Hay mil formas de hacerlo y esto depende de cada uno..."></ion-textarea>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed"> <p>Ingredientes-Medidas <span>*</span></p> </ion-label>
+            <ion-input formControlName="strIngredientsMeasures" type="text" placeholder="harina-120gr, leche-120gr, huevos-3ud, sal-1 cucharada, ..."></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed">
+              <p>URL Imagen <span>*</span></p>
+            </ion-label>
+            <ion-input formControlName="strMealThumb" type="url" placeholder="https://qwerty.png"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed">
+              <p>URL de YouTube</p>
+            </ion-label>
+            <ion-input formControlName="strYoutube" type="url" placeholder="https://www.youtube.com/"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="fixed"><p>Fuente</p></ion-label>
+            <ion-input formControlName="strSource" type="url" placeholder="https://recetas/españa&tortilla"></ion-input>
+          </ion-item>
+        </ion-card-content>
+
+        <ion-footer class="ion-text-center">
+          <ion-button slot="" type="submit" [disabled]="!mealForm.valid">Enviar</ion-button>
+        </ion-footer>
+      </ion-card>
+    </form>
+    <!-- =================================================== -->
+
+  </div>
+
+</ion-content>

@@ -1,6 +1,17 @@
-ion-icon {
+ion-icon[name="star-outline"],
+ion-icon[name="star"] {
     font-size: 30px;
     color: yellow;
+}
+
+ion-icon[name="trash"] {
+    font-size: 30px;
+    color: red;
+}
+
+ion-icon[name="create"] {
+    font-size: 30px;
+    color: rgb(0, 151, 0);
 }
 
 .btFavSolo {
@@ -17,4 +28,32 @@ img {
 a {
     text-decoration: none;
     color: white
+}
+
+.botones-contenedor {
+    display: flex;
+    justify-content: space-around;
+    /* Espaciado uniforme entre los botones */
+    align-items: center;
+    /* Alinea los botones verticalmente */
+    gap: 10px;
+    /* Espaciado opcional entre botones */
+}
+
+.input-contenedor {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    padding-left: 10px;
+
+    ion-input {
+        font-size: 16px;
+    }
+
+    ion-button {
+        font-size: 16px;
+        size: 5px;
+    }
+
 }

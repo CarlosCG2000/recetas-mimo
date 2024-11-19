@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'formulario-receta',
+    loadChildren: () => import('./pages/formulario-receta/formulario-receta.module').then( m => m.FormularioRecetaPageModule)
   }
   // {
   //   path: 'detalles-receta-completa',

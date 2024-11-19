@@ -17,8 +17,7 @@
       }
     </ion-card-content>
 
-    @if(sinModi){ <!-- PARA PAGINA DE LISTADO DE FAVORITOS DE RECETAS -->
-      <div class="inputTips">
+    @if(sinModi && receta.idMeal.length < 15){ <!-- PARA PAGINA DE LISTADO DE FAVORITOS DE RECETAS -->
         @if(sinTip){  <!-- SI LA RECETA TIENE TIPS -->
             <ion-list>
               <!-- Listado de tips -->
@@ -30,23 +29,43 @@
                 </ion-item>
               }
             </ion-list>
-            <ion-input (ionInput)="inputTips($event)"
-            [(ngModel)]="tipInput"
-            placeholder="Escribe un tip"></ion-input>
-            <ion-button (click)="addTip()">Guardar</ion-button>
+            <div class="input-contenedor">
+              <ion-input (ionInput)="inputTips($event)"
+              [(ngModel)]="tipInput"
+              placeholder="Escribe un tip"></ion-input>
+              <ion-button (click)="addTip()">Guardar</ion-button>
+            </div>
         } @else { <!-- SI LA RECETA AUN NO TIENE TIPS -->
             <ion-list>
               <ion-item> <ion-label>No hay tips para esta receta</ion-label></ion-item>
             </ion-list>
-            <ion-input (ionInput)="inputTips($event)"
-            [(ngModel)]="tipInput"
-            placeholder="Escribe un tip"></ion-input>
-            <ion-button (click)="addTip()">Guardar</ion-button>
+            <div class="input-contenedor">
+              <ion-input (ionInput)="inputTips($event)"
+              [(ngModel)]="tipInput"
+              placeholder="Escribe un tip"></ion-input>
+              <ion-button (click)="addTip()">Guardar</ion-button>
+          </div>
         }
-      </div>
     }
 
-    <div class="btFavSolo">
+    <div class="botones-contenedor">
+      @if( receta.idMeal.length > 15)
+      {
+        <ion-button (click)="propiaRecetaModificar()" fill="clear">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button id="present-alert" fill="clear">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Eliminar Receta"
+          [buttons]="alertButtons"
+          (didDismiss)="eliminarRecetaModificar($event)"
+        ></ion-alert>
+      }
+
+    <!-- <div class="btFavSolo"> -->
       <ion-button (click)="favRecetaModificar()" fill="clear">
         @if(estadoFav){
           <ion-icon name="star" class="iconFav"></ion-icon>
@@ -55,7 +74,7 @@
         }
       </ion-button>
     </div>
-
+  <!-- </div> -->
     <!-- LISTADO DE TIPS - SI ES UNA RECETA EN FAVORITOS -->
     <!-- @if(estadoFav){
       @if(sinTip){

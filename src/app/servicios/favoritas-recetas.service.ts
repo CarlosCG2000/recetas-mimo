@@ -21,7 +21,7 @@ export class FavoritasRecetasService {
 
   recetasFav = localStorage.getItem("recetas-fav") ? signal<any[]>(JSON.parse(localStorage.getItem("recetas-fav")!)) : signal<any[]>([]); // El operador ! se utiliza para indicar al compilador de TypeScript que getItem() no devolverá null en este punto, ya que está dentro del bloque condicional.
 
-  // Definimos un Signal (para actualizar el num de items en el carrito)
+  // Definimos un Signal (para actualizar el num de items)
   numItemsFav = computed(() => {
     return this.recetasFav().length
   })
