@@ -99,13 +99,24 @@ export class RecetaSimpleComponent implements OnInit {
   ];
 
   eliminarRecetaModificar(evento:any){
+    console.log(`Entramos en la eliminación del elemento ${this.receta.idMeal}`);
     if(evento.detail.role === 'confirm'){
       this.misRecetasService.deleteReceta(this.receta.idMeal)
+      console.log(`Eliminación del elemento ${this.receta.idMeal}`);
       if(this.estadoFav){
         this.favService.addDeleteRecetasFav(this.receta)
+        console.log(`eliminación del elemento ${this.receta.idMeal} de favoritas`);
       }
+      this.isAlertOpen = false;
     } else
       console.log(`Cancelando la eliminación del elemento ${this.receta.idMeal}`);
+      this.isAlertOpen = false;
+  }
+
+  isAlertOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
 
 }

@@ -54,10 +54,11 @@
         <ion-button (click)="propiaRecetaModificar()" fill="clear">
           <ion-icon name="create"></ion-icon>
         </ion-button>
-        <ion-button id="present-alert" fill="clear">
+        <ion-button id="present-alert" fill="clear" (click)="setOpen(true)"> <!-- fill="clear" -->
           <ion-icon name="trash"></ion-icon>
         </ion-button>
         <ion-alert
+          [isOpen]="isAlertOpen"
           trigger="present-alert"
           header="Eliminar Receta"
           [buttons]="alertButtons"
