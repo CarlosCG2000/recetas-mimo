@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { RecetasService } from '../servicios/recetas.service';
+import { RecetasService } from '../../servicios/recetas.service';
 import { debounceTime, Subject } from 'rxjs';
-import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
+import { FavoritasRecetasService } from '../../servicios/favoritas-recetas.service';
 
 @Component({
   selector: 'app-tab1',
@@ -38,13 +38,6 @@ export class TabListRecetasPage {
     });
 
   }
-
-  // cambiarFavReceta(){
-  //   this.nombre = '';
-  //   this.categoriaSeleccionada = 'nothing';
-  //   this.recetas.set(this.recetasServicio.getRecetas())
-  //   console.log("Cambio de la receta")
-  // }
 
   ionChangeNombre(event: any){
     //Propiedades

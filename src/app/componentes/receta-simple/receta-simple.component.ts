@@ -40,7 +40,6 @@ export class RecetaSimpleComponent implements OnInit {
       this.recetaService.getRecetaById(this.receta.idMeal)
       .subscribe((receta:any) => {
         this.receta = receta.meals[0]
-        console.log(this.receta)
       })
     }
 
@@ -65,11 +64,15 @@ export class RecetaSimpleComponent implements OnInit {
 
   addTip(){
     if (this.tipInput.trim() !== '') {
+      console.log(`Añadiendo tip "${this.tipInput}" a la receta ${this.receta.idMeal}`);
       this.favService.addTipsRecetasFav(this.receta.idMeal, this.tipInput);
       this.tips = this.favService.getRecetaById(this.receta.idMeal).tips
       this.tipInput = '';
       console.log(`input ${ this.tipInput}`)
     }
+
+    if (this.tipInput.trim() !== '')
+      this.tips = this.favService.getRecetaById(this.receta.idMeal).tips
   }
 
   deleteTip(tip:any){

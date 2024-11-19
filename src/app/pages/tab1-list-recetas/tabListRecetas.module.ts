@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TabListRecetasPage } from './tabListRecetas.page';
 
 import { TabListRecetasRoutingModule } from './tabListRecetas-routing.module';
-import { RecetaSimpleComponentModule } from "../componentes/receta-simple/receta-simple.module";
+import { RecetaSimpleComponentModule } from '../../componentes/receta-simple/receta-simple.module';
 
 @NgModule({
   imports: [

@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'receta-completa/:id',
-    loadChildren: () => import('../pages/detalles-receta-completa/detalles-receta-completa.module').then(m => m.DetallesRecetaCompletaPageModule)
+    loadChildren: () => import('../../pages/detalles-receta-completa/detalles-receta-completa.module').then(m => m.DetallesRecetaCompletaPageModule)
   },
   {
     path: '',

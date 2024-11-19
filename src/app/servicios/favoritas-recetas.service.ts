@@ -106,8 +106,9 @@ export class FavoritasRecetasService {
       }
 
       localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
-
       alert(`Añadido a ${this.recetasFav()[recetaIndex].strMeal} el primer tip: ${tip}`)
+      this.recetasFav.set(localStorage.getItem("recetas-fav") ? JSON.parse(localStorage.getItem("recetas-fav")!) : [])
+      this.getRecetasFav()
     } else {
       // Agregar el tip al array de tips
       this.recetasFav()[recetaIndex].tips.push(tip)

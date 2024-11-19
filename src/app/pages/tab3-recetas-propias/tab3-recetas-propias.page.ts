@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
+import { FavoritasRecetasService } from '../../servicios/favoritas-recetas.service';
 import { Prop } from 'ionicons/dist/types/stencil-public-runtime';
-import { PropiasRecetasService } from '../servicios/propias-recetas.service';
+import { PropiasRecetasService } from '../../servicios/propias-recetas.service';
 import { Router } from '@angular/router';
 
 @Component({

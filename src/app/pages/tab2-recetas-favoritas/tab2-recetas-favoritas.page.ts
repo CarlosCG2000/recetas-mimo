@@ -1,5 +1,5 @@
 import { Component, inject, signal, Signal } from '@angular/core';
-import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
+import { FavoritasRecetasService } from '../../servicios/favoritas-recetas.service';
 
 @Component({
   selector: 'app-tab2',

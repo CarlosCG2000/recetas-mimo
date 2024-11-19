@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab2RecetasFavoritasPage } from './tab2-recetas-favoritas.page';
 
 import { Tab2RecetasFavoritasPageRoutingModule } from './tab-recetas-favoritas-routing.module';
-import { RecetaSimpleComponentModule } from "../componentes/receta-simple/receta-simple.module";
+import { RecetaSimpleComponentModule } from "../../componentes/receta-simple/receta-simple.module";
 
 @NgModule({
   imports: [
