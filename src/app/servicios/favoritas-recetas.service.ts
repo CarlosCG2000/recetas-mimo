@@ -69,7 +69,8 @@ export class FavoritasRecetasService {
 
       this.recetasFav.update((recetas) => [...recetas, receta]); // la propagación de arrays (...recetas) para crear un nuevo array
 
-      alert(`Receta ${receta.strMeal} añadida a favoritos`)
+      // alert(`Receta ${receta.strMeal} añadida a favoritos`)
+
 
       localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
 
@@ -80,7 +81,7 @@ export class FavoritasRecetasService {
         recetas.filter((recetaItem) => recetaItem.idMeal !== receta.idMeal)
       );
 
-      alert(`Receta ${receta.strMeal} eliminada de favoritos`)
+      // alert(`Receta ${receta.strMeal} eliminada de favoritos`)
 
       localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
 
@@ -106,7 +107,7 @@ export class FavoritasRecetasService {
       }
 
       localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
-      alert(`Añadido a ${this.recetasFav()[recetaIndex].strMeal} el primer tip: ${tip}`)
+      // alert(`Añadido a ${this.recetasFav()[recetaIndex].strMeal} el primer tip: ${tip}`)
       this.recetasFav.set(localStorage.getItem("recetas-fav") ? JSON.parse(localStorage.getItem("recetas-fav")!) : [])
       this.getRecetasFav()
     } else {
@@ -115,7 +116,7 @@ export class FavoritasRecetasService {
 
       localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
 
-      alert(`Añadido a ${this.recetasFav()[recetaIndex].strMeal} un nuevo tip: ${tip}`)
+      // alert(`Añadido a ${this.recetasFav()[recetaIndex].strMeal} un nuevo tip: ${tip}`)
     }
   }
 
@@ -128,7 +129,7 @@ export class FavoritasRecetasService {
 
     localStorage.setItem("recetas-fav", JSON.stringify(this.recetasFav()))
 
-    alert(`Eliminado el tip de ${this.recetasFav()[recetaIndex].strMeal}`)
+    // alert(`Eliminado el tip de ${this.recetasFav()[recetaIndex].strMeal}`)
   }
 
 

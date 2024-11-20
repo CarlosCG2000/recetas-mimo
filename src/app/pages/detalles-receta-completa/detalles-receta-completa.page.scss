@@ -1,11 +1,23 @@
 img {
     height: 400px;
     border-radius: 10%;
+    margin-bottom: 20px;
 }
 
 ion-card {
     margin: 10px;
+    padding: 20px;
     border-radius: 2%;
+}
+
+ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ion-title {
+        justify-content: center;
+    }
 }
 
 h2 {
@@ -19,26 +31,23 @@ p {
     font-size: 15px;
 }
 
-ion-toolbar {
-    ion-title {
-        justify-content: center;
-    }
-}
-
 ion-icon {
     color: white;
 }
 
-ion-title {
-    flex: 1;
-}
-
-#bto-grande {
-    font-size: 24px;
-    height: 100px;
-    width: 100px;
+.bto-grande {
+    font-size: 30px;
+    margin-left: 40px;
 
     ion-icon {
         font-size: 40px;
+    }
+
+}
+
+.ion-text-center {
+    .descripReceta p {
+        text-align: start;
+        padding: 10px 100px;
     }
 }

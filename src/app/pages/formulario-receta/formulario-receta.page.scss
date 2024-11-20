@@ -41,3 +41,21 @@ ion-input,
 ion-textarea {
     margin-left: 100px;
 }
+
+.bto-grande {
+    font-size: 30px;
+    margin-left: 40px;
+
+    ion-icon {
+        font-size: 40px;
+    }
+}
+
+ion-icon {
+    color: white;
+}
+
+ion-card-content {
+    padding: 10px 100px;
+    border-radius: 20%;
+}

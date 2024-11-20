@@ -16,7 +16,7 @@
         </ion-button>
       </ion-buttons>
 
-      <ion-title size="large" class="ion-text-center">Detalles de la receta</ion-title>
+      <ion-title size="large" class="ion-text-center flex-title">Detalles de la receta</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -37,7 +37,7 @@
       </ion-item>
 
       <ion-item class="ion-text-center">
-        <ion-label class="ion-align-items-center">
+        <ion-label>
           <h2>Ingredientes y Medidas</h2>
           <div *ngFor="let ingrediente of ingredientes">
             <p>{{ ingrediente?.medida }} - {{ ingrediente?.nombre }}</p>
@@ -55,7 +55,7 @@
       <ion-item *ngIf="receta?.strSource" class="ion-text-center">
         <ion-label>
           <h2>Fuente</h2>
-          <a [href]="receta?.strSource" target="_blank">Ir a la fuente</a>
+          <a [href]="receta?.strSource" target="_blank">Ir a la web de la receta</a>
         </ion-label>
       </ion-item>
     </ion-card-content>

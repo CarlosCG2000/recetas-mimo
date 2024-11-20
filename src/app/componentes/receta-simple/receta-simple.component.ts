@@ -4,6 +4,8 @@ import { debounceTime, Subject } from 'rxjs';
 import { FavoritasRecetasService } from 'src/app/servicios/favoritas-recetas.service';
 import { PropiasRecetasService } from 'src/app/servicios/propias-recetas.service';
 import { RecetasService } from 'src/app/servicios/recetas.service';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-receta-simple',
@@ -31,7 +33,7 @@ export class RecetaSimpleComponent implements OnInit {
   favService = inject(FavoritasRecetasService)
   misRecetasService = inject(PropiasRecetasService)
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
     // AQUI ES DONDE PETA ( IDEA QUE AQUI SOLO ENTRE SI NO ES UNA RECETA PROPIA, ES DECIR SINO VIENE DE LA API/MOCKS DE RECETAS)
@@ -51,10 +53,31 @@ export class RecetaSimpleComponent implements OnInit {
     }
   }
 
-  favRecetaModificar()
+  async favRecetaModificar()
   {
     console.log(`Receta favorita ${this.receta.idMeal}`)
     this.estadoFav = this.favService.addDeleteRecetasFav(this.receta)
+
+    if(this.estadoFav){
+      const alert = await this.alertController.create({
+        header: 'Añadido con éxito',
+        subHeader: 'A favoritos',
+        message: `Receta ${this.receta.strMeal}`,
+        buttons: ['Aceptar'],
+      });
+
+      await alert.present();
+
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Eliminado con éxito',
+        subHeader: 'Desde favoritos',
+        message: `Receta ${this.receta.strMeal}`,
+        buttons: ['Aceptar'],
+      });
+
+      await alert.present();
+    }
   }
 
   inputTips(event:any){
@@ -62,21 +85,40 @@ export class RecetaSimpleComponent implements OnInit {
     console.log(this.tipInput)
   }
 
-  addTip(){
+  async addTip(){
     if (this.tipInput.trim() !== '') {
       console.log(`Añadiendo tip "${this.tipInput}" a la receta ${this.receta.idMeal}`);
       this.favService.addTipsRecetasFav(this.receta.idMeal, this.tipInput);
       this.tips = this.favService.getRecetaById(this.receta.idMeal).tips
+
+      const alert = await this.alertController.create({
+        header: 'Añadido con éxito',
+        subHeader: 'Nuevo Tip',
+        message: `Tip: ${this.tipInput}`,
+        buttons: ['Aceptar'],
+      });
+
       this.tipInput = '';
-      console.log(`input ${ this.tipInput}`)
+
+      await alert.present();
     }
 
     if (this.tipInput.trim() !== '')
       this.tips = this.favService.getRecetaById(this.receta.idMeal).tips
   }
 
-  deleteTip(tip:any){
+  async deleteTip(tip:any){
     this.favService.removeTipsRecetasFav(this.receta.idMeal, tip)
+
+    const alert = await this.alertController.create({
+      header: 'Eliminado con éxito',
+      subHeader: 'Tip',
+      message: `Tip: ${tip}`,
+      buttons: ['Aceptar'],
+    });
+
+    await alert.present()
+
   }
 
   propiaRecetaModificar(){

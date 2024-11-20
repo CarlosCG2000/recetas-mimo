@@ -13,3 +13,9 @@ Problemas API:
 - Modificarlo haciendolo con Signal
 - Añadir el Defer
 - Hacerlo mas bonito
+
+❌ * REALIZAR CON 'IONIC' Y 'CSS' UN MEJOR DISEÑO.
+❌ * CREAR CLASES NECESARIAS PARA DEJAR DE USAR LOS 'ANY'.
+❌ * AÑADIR FUNCIONALIDADES COMO EL DEFER Y EL INFINITY SCROLL, ETC.
+
+
