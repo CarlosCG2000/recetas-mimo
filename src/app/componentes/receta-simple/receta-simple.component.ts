@@ -56,6 +56,7 @@ export class RecetaSimpleComponent implements OnInit {
   async favRecetaModificar()
   {
     console.log(`Receta favorita ${this.receta.idMeal}`)
+    console.log(this.receta)
     this.estadoFav = this.favService.addDeleteRecetasFav(this.receta)
 
     if(this.estadoFav){

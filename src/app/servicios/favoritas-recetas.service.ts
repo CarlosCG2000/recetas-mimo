@@ -39,11 +39,7 @@ export class FavoritasRecetasService {
     let receta = this.recetasFav().find((receta) => receta.idMeal === id)
 
     return receta?.tips === undefined ? false : true
-    // if (receta.tips == undefined){
-    //   return false
-    // }else{
-    //   return true
-    // }
+
   }
 
   getRecetaById(id: string) {

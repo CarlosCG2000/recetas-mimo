@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PropiasRecetasService } from 'src/app/servicios/propias-recetas.service';
 import { Location } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
+import { RecetasPropias } from 'src/app/models/RecetasPropias';
 
 @Component({
   selector: 'app-formulario-receta',
@@ -55,10 +56,23 @@ export class FormularioRecetaPage  {
 
   onSubmit() {
     console.log(this.mealForm.value);
+
+    let receta = new RecetasPropias(
+        this.mealForm.value.idMeal,
+        this.mealForm.value.strMeal,
+        this.mealForm.value.strCategory,
+        this.mealForm.value.strArea,
+        this.mealForm.value.strInstructions,
+        this.mealForm.value.strMealThumb,
+        this.mealForm.value.strIngredientsMeasures,
+        this.mealForm.value.strYoutube,
+        this.mealForm.value.strSource
+    );
+
     if(this.id == '')
-      this.misRecetasServicio.addNewReceta(this.mealForm.value)
+      this.misRecetasServicio.addNewReceta(receta) // this.mealForm.value
     else
-      this.misRecetasServicio.updateReceta(this.mealForm.value)
+      this.misRecetasServicio.updateReceta(receta) // this.mealForm.value
 
     this.router.navigate(["/recetas-propias"])
   }
