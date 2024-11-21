@@ -33,6 +33,25 @@ export class RecetaSimpleComponent implements OnInit {
   favService = inject(FavoritasRecetasService)
   misRecetasService = inject(PropiasRecetasService)
 
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
+
+  isAlertOpen = false;
+
   constructor(private router: Router, private alertController: AlertController) {}
 
   ngOnInit() {
@@ -102,10 +121,11 @@ export class RecetaSimpleComponent implements OnInit {
       this.tipInput = '';
 
       await alert.present();
+
+      this.tips = this.favService.getRecetaById(this.receta.idMeal).tips // Actualizamos la lista de tips
     }
 
-    if (this.tipInput.trim() !== '')
-      this.tips = this.favService.getRecetaById(this.receta.idMeal).tips
+
   }
 
   async deleteTip(tip:any){
@@ -127,22 +147,6 @@ export class RecetaSimpleComponent implements OnInit {
     this.router.navigate(["/formulario-receta", {idReceta: this.receta.idMeal}])
   }
 
-  public alertButtons = [
-    {
-      text: 'Cancelar',
-      role: 'cancel',
-      handler: () => {
-        console.log('Alert canceled');
-      },
-    },
-    {
-      text: 'OK',
-      role: 'confirm',
-      handler: () => {
-        console.log('Alert confirmed');
-      },
-    },
-  ];
 
   eliminarRecetaModificar(evento:any){
     console.log(`Entramos en la eliminación del elemento ${this.receta.idMeal}`);
@@ -158,8 +162,6 @@ export class RecetaSimpleComponent implements OnInit {
       console.log(`Cancelando la eliminación del elemento ${this.receta.idMeal}`);
       this.isAlertOpen = false;
   }
-
-  isAlertOpen = false;
 
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;

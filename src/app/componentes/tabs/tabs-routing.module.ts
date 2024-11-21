@@ -9,15 +9,15 @@ const routes: Routes = [
     children: [
       {
         path: 'listado-recetas',
-        loadChildren: () => import('../pages/tab1-list-recetas/tabListRecetas.module').then(m => m.TabListRecetasModule)
+        loadChildren: () => import('../../pages/tab1-list-recetas/tabListRecetas.module').then(m => m.TabListRecetasModule)
       },
       {
         path: 'recetas-favoritas',
-        loadChildren: () => import('../pages/tab2-recetas-favoritas/tab2-recetas-favoritas.module').then(m => m.Tab2RecetasFavoritasPageModule)
+        loadChildren: () => import('../../pages/tab2-recetas-favoritas/tab2-recetas-favoritas.module').then(m => m.Tab2RecetasFavoritasPageModule)
       },
       {
         path: 'recetas-propias',
-        loadChildren: () => import('../pages/tab3-recetas-propias/tab3-recetas-propias.module').then(m => m.Tab3RecetasPropiasPageModule)
+        loadChildren: () => import('../../pages/tab3-recetas-propias/tab3-recetas-propias.module').then(m => m.Tab3RecetasPropiasPageModule)
       },
       {
         path: '',

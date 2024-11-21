@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
-import { RecetasService } from '../servicios/recetas.service';
-import { FavoritasRecetasService } from '../servicios/favoritas-recetas.service';
+import { RecetasService } from '../../servicios/recetas.service';
+import { FavoritasRecetasService } from '../../servicios/favoritas-recetas.service';
 import { Router } from '@angular/router';
 
 @Component({
