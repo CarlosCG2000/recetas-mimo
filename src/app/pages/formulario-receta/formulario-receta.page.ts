@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
 import { RecetasPropias } from 'src/app/models/RecetasPropias';
 import { RecetasService } from 'src/app/servicios/recetas.service';
+import { FavoritasRecetasService } from 'src/app/servicios/favoritas-recetas.service';
 
 @Component({
   selector: 'app-formulario-receta',
@@ -16,6 +17,7 @@ export class FormularioRecetaPage  {
 
   mealForm: FormGroup;
   misRecetasServicio = inject(PropiasRecetasService)
+  recetasFavoritasService = inject(FavoritasRecetasService)
   recetasService = inject(RecetasService)
   private route = inject(ActivatedRoute)
   id: string = ''
@@ -80,7 +82,12 @@ export class FormularioRecetaPage  {
     if(this.id == '')
       this.misRecetasServicio.addNewReceta(receta) // this.mealForm.value
     else
+    {
       this.misRecetasServicio.updateReceta(receta) // this.mealForm.value
+      if (this.recetasFavoritasService.getRecetaById(this.id) != null){
+        this.recetasFavoritasService.updateRecetasFav(receta)
+      }
+    }
 
     this.router.navigate(["/recetas-propias"])
   }

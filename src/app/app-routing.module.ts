@@ -9,11 +9,11 @@ const routes: Routes = [
   {
     path: 'formulario-receta',
     loadChildren: () => import('./pages/formulario-receta/formulario-receta.module').then( m => m.FormularioRecetaPageModule)
+  },
+  {
+    path: 'detalles-receta-completa',
+    loadChildren: () => import('./pages/detalles-receta-completa/detalles-receta-completa.module').then( m => m.DetallesRecetaCompletaPageModule)
   }
-  // {
-  //   path: 'detalles-receta-completa',
-  //   loadChildren: () => import('./pages/detalles-receta-completa/detalles-receta-completa.module').then( m => m.DetallesRecetaCompletaPageModule)
-  // }
 ];
 @NgModule({
   imports: [

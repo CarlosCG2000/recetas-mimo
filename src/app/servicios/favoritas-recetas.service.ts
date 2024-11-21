@@ -80,6 +80,21 @@ export class FavoritasRecetasService {
     }
   }
 
+  updateRecetasFav(receta: any) {
+    const currentRecetasFav = this.getRecetasFav()
+    this.recetasFav.set(currentRecetasFav)
+
+    // COMPROBAR SI EL PRODUCTO YA ESTÁ EN EL CARRITO
+    let indice = currentRecetasFav.findIndex((recetaItem) => recetaItem.idMeal === receta.idMeal)
+
+    if (indice != -1)
+      this.recetasFav.update((recetas) =>
+        recetas.map((recetaItem) =>
+          recetaItem.idMeal === receta.idMeal ? receta : recetaItem
+        )
+      );
+}
+
   estadoFavReceta(idReceta: string) {
     return this.recetasFav().findIndex((recetaItem: any) => recetaItem.idMeal === idReceta) !== -1
   }
