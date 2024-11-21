@@ -6,7 +6,7 @@ import { RecetasPropias } from '../models/RecetasPropias';
 })
 export class PropiasRecetasService {
 
-  recetasPropias = localStorage.getItem("recetas-propias") ? signal<RecetasPropias[]>(JSON.parse(localStorage.getItem("recetas-propias")!)) : signal<RecetasPropias[]>([]); // El operador ! se utiliza para indicar al compilador de TypeScript que getItem() no devolverá null en este punto, ya que está dentro del bloque condicional.
+  recetasPropias = localStorage.getItem("recetas-propias") ? signal<RecetasPropias[]>(JSON.parse(localStorage.getItem("recetas-propias")!)) : signal<RecetasPropias[]>([]);
 
   constructor() {
     this.recetasPropias.set(localStorage.getItem("recetas-propias") ? JSON.parse(localStorage.getItem("recetas-propias")!) : [])

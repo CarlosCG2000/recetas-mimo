@@ -24,11 +24,6 @@ export class RecetasService {
 
   private httpClient = inject(HttpClient)
 
-  // recetasFavoritasComp = computed(() => {
-  //   const recetasFavFromStorage = localStorage.getItem('recetas-fav');
-  //   return this.recetasJson();
-  // });
-
   constructor() { }
 
   // getRecetasCategoria(categoria: string){

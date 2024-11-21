@@ -15,9 +15,8 @@
       @else {
         <p>{{receta.strInstructions.substring(0, 82)}}...</p>
       }
-    </ion-card-content>
 
-    @if(sinModi && receta.idMeal.length < 15){ <!-- PARA PAGINA DE LISTADO DE FAVORITOS DE RECETAS -->
+      @if(sinModi && receta.idMeal.length < 15){  <!-- PARA PAGINA DE LISTADO DE FAVORITOS DE RECETAS -->
         @if(sinTip){  <!-- SI LA RECETA TIENE TIPS -->
             <ion-list>
               <!-- Listado de tips -->
@@ -53,63 +52,35 @@
               <ion-button (click)="addTip()">Guardar</ion-button>
           </div>
         }
-    }
-
-    <div class="botones-contenedor">
-      @if( receta.idMeal.length > 15)
-      {
-        <ion-button (click)="propiaRecetaModificar()" fill="clear">
-          <ion-icon name="create"></ion-icon>
-        </ion-button>
-        <ion-button id="present-alert" fill="clear" (click)="setOpen(true)"> <!-- fill="clear" -->
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-        <ion-alert
-          [isOpen]="isAlertOpen"
-          trigger="present-alert"
-          header="Eliminar Receta"
-          [buttons]="alertButtons"
-          (didDismiss)="eliminarRecetaModificar($event)"
-        ></ion-alert>
       }
 
-    <!-- <div class="btFavSolo"> -->
-      <ion-button (click)="favRecetaModificar()" fill="clear">
-        @if(estadoFav){
-          <ion-icon name="star" class="iconFav"></ion-icon>
-        } @else {
-          <ion-icon name="star-outline" class="iconFav"></ion-icon>
+      <div class="botones-contenedor">
+        @if( receta.idMeal.length > 15)
+        {
+          <ion-button (click)="propiaRecetaModificar()" fill="clear">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button id="present-alert" fill="clear" (click)="setOpen(true)"> <!-- fill="clear" -->
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+          <ion-alert
+            [isOpen]="isAlertOpen"
+            trigger="present-alert"
+            header="Eliminar Receta"
+            [buttons]="alertButtons"
+            (didDismiss)="eliminarRecetaModificar($event)"
+          ></ion-alert>
         }
-      </ion-button>
-    </div>
-  <!-- </div> -->
-    <!-- LISTADO DE TIPS - SI ES UNA RECETA EN FAVORITOS -->
-    <!-- @if(estadoFav){
-      @if(sinTip){
-        <div class="inputTips">
-          <ion-list>
-            @for(tip of tips; track tip)
-            {
-              <ion-item>
-                <ion-label>{{tip}}</ion-label>
-                <ion-button>Eliminar</ion-button>
-              </ion-item>
-            }
-            </ion-list>
-          <ion-input placeholder="Escribe un tip"></ion-input>
-          <ion-button>Guardar</ion-button>
-        </div>
-      } @else {
-        <div class="inputTips">
-          <ion-list>
-            <ion-item> <ion-label>No hay tips para esta receta</ion-label></ion-item>
-          </ion-list>
-          <ion-input placeholder="Escribe un tip"></ion-input>
-          <ion-button>Guardar</ion-button>
-        </div>
-      }
-    } -->
-    <!-- ======================================== -->
+
+        <ion-button (click)="favRecetaModificar()" fill="clear">
+          @if(estadoFav){
+            <ion-icon name="star" class="iconFav"></ion-icon>
+          } @else {
+            <ion-icon name="star-outline" class="iconFav"></ion-icon>
+          }
+        </ion-button>
+      </div>
+
+    </ion-card-content>
 
   </ion-card>
-<!-- </ion-col> -->

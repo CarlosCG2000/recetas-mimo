@@ -44,7 +44,14 @@
 
           <ion-item lines="none">
             <ion-label position="fixed"> <p>Categoría <span>*</span></p> </ion-label>
-            <ion-input formControlName="strCategory" type="text" placeholder="Meat, sealfood, pasta, desserts ..."></ion-input>
+            <ion-select formControlName="strCategory" placeholder="Selecciona una categoría">
+              @for(categoriaItem of categorias; track categoriaItem.strCategory)
+              {
+                <ion-select-option [value]="categoriaItem.strCategory">
+                  {{ categoriaItem.strCategory }}
+                </ion-select-option>
+              }
+            </ion-select>
           </ion-item>
 
           <ion-item lines="none">

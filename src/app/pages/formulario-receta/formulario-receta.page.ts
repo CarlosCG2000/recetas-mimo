@@ -5,6 +5,7 @@ import { PropiasRecetasService } from 'src/app/servicios/propias-recetas.service
 import { Location } from '@angular/common';
 import { v4 as uuidv4 } from 'uuid';
 import { RecetasPropias } from 'src/app/models/RecetasPropias';
+import { RecetasService } from 'src/app/servicios/recetas.service';
 
 @Component({
   selector: 'app-formulario-receta',
@@ -15,11 +16,18 @@ export class FormularioRecetaPage  {
 
   mealForm: FormGroup;
   misRecetasServicio = inject(PropiasRecetasService)
+  recetasService = inject(RecetasService)
   private route = inject(ActivatedRoute)
   id: string = ''
   receta:any
+  categorias:any[] = []
 
   constructor(private fb: FormBuilder, private router: Router, private location: Location) {
+
+    this.recetasService.getCategorias()
+    .subscribe((categorias:any) => {
+      this.categorias = categorias.meals
+    })
 
     this.id = this.route.snapshot.paramMap.get('idReceta') ?? '';
     console.log(this.id)

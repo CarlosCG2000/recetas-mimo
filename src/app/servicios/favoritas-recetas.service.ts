@@ -1,12 +1,11 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritasRecetasService {
 
-  //forma json
+  // Formato del json
   // {
   //     "strMeal": "Beef Wellington",
   //     "strMealThumb": "https://www.themealdb.com/images/media/meals/vvpprx1487325699.jpg",
@@ -14,17 +13,13 @@ export class FavoritasRecetasService {
   //     "strCategory": "Beef"
   // }
 
-  // si esta en el local storage, se carga a la estrella, si no se queda sin el fondo amarillo
-  // se guarda en el local storage
-  // se borra del local storage  (lista de fav)
-  // se muestra si es favorito o no en la receta simple comparando con el local storage par asaber si se encuentra
+  // Definimos un Signal (para actualizar las recetas favoritas)
+  recetasFav = localStorage.getItem("recetas-fav") ? signal<any[]>(JSON.parse(localStorage.getItem("recetas-fav")!)) : signal<any[]>([]); // El operador ! se utiliza para indicar al compilador de TS que getItem() no devolverá null en este punto, ya que está dentro del bloque condicional.
 
-  recetasFav = localStorage.getItem("recetas-fav") ? signal<any[]>(JSON.parse(localStorage.getItem("recetas-fav")!)) : signal<any[]>([]); // El operador ! se utiliza para indicar al compilador de TypeScript que getItem() no devolverá null en este punto, ya que está dentro del bloque condicional.
-
-  // Definimos un Signal (para actualizar el num de items)
-  numItemsFav = computed(() => {
-    return this.recetasFav().length
-  })
+  // Definimos un Signal (para actualizar el num de items, al final no lo uso)
+  // numItemsFav = computed(() => {
+  //   return this.recetasFav().length
+  // })
 
   constructor() {
     // Cargar los productos del carrito desde el LocalStorage
